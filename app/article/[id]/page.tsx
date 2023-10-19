@@ -1,16 +1,17 @@
 import React from "react";
+
 import Viewer from "@/components/Viewer";
 import Markdown from "@/components/Markdown";
 
 export const metadata = {
-  title: "About Me",
-  description: "This Page is About Me",
+  title: "Article Detail Page",
+  description: "This is Article Detail Page | can view one articles here",
 };
 
-export default async function About() {
+export default async function ArticleDetail() {
   return (
     <>
-      <Viewer title={"nameWithOwner"} />
+      <Viewer title={"article!.title"} />
       <Markdown />
     </>
   );

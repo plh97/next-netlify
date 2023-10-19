@@ -1,7 +1,5 @@
 import Link from "next/link";
-import cs from "classnames";
 import React from "react";
-import Active from "./Active";
 
 interface IProps {
   className: string;
@@ -12,9 +10,7 @@ interface IProps {
 
 export default function SideItem({ path, className, children, icon }: IProps) {
   return (
-    <Link href={path} className={cs(className)}>
-      <Active path={path} />
-      <i className={cs("icon", icon)} />
+    <Link href={path} className={className}>
       <span>{children}</span>
     </Link>
   );

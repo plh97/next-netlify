@@ -1,22 +1,21 @@
 import _ from "lodash";
 import React from "react";
-
 import { fetchUser } from "@/apis/user";
-import Viewer from "@/components/Viewer";
-
-import Markdown from "@/components/Markdown";
 import { fetchRepositoryDetail } from "@/apis/repository";
+import { PageProps } from "@/.next/types/app/repository/[repo]/[branch]/page";
+import Viewer from "@/components/Viewer";
+import Markdown from "@/components/Markdown";
 
 export const metadata = {
-  title: "About Me",
-  description: "This Page is About Me",
+  title: "Repository Detail Page",
+  description: "This is Repository Detail Page | can view one Repository here",
 };
 
-export default async function About() {
+export default async function RepositoryDetail({ params }: PageProps) {
   const userRes = await fetchUser();
   const repositoryRes = await fetchRepositoryDetail({
-    repo: "plh97/plh97",
-    branch: "main"
+    repo: decodeURIComponent(params.repo),
+    branch: decodeURIComponent(params.branch),
   });
   const repositoryText = _.get(
     repositoryRes,
